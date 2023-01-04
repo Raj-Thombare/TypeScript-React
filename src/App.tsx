@@ -1,7 +1,13 @@
 import React from "react";
+import Todos from "./components/Todos";
 
 function App() {
-  return <div>Hello TypeScript</div>;
+  const itemsArray = ["Learn TypeScript", "Learn Next.js"];
+  return (
+    <div>
+      <Todos items={itemsArray} />
+    </div>
+  );
 }
 
 export default App;
