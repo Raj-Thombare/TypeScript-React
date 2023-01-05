@@ -1,18 +1,24 @@
 import React from "react";
-import TodoItem from "./TodoItem";
+import { isTemplateSpan } from "typescript";
 
-interface Props {
-  items: string[];
-  children?: React.ReactNode;
+// interface Props {
+//   items: {
+//     id: number;
+//     name: string;
+//   };
+// }
+
+interface Item {
+  id: number;
+  name: string;
 }
 
-const Todos: React.FC<Props> = ({ items, children }) => {
+const Todos: React.FC<{ items: Item[] }> = (props) => {
   return (
     <ul>
-      {items.map((item) => (
-        <TodoItem item={item} />
+      {props.items.map((item) => (
+        <li>{item.name}</li>
       ))}
-      {children}
     </ul>
   );
 };
