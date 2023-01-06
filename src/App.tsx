@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Todos from "./components/Todos";
 import NewTodo from "./components/NewTodo";
+import { Item } from "./models/todo";
 
 const App = () => {
-  const [todos, setTodos] = useState<string[]>([]);
+  const [todos, setTodos] = useState<Item[]>([]);
 
   const dummy_todos = [
     { id: 1, name: "Learn TypeScript" },
@@ -11,16 +12,21 @@ const App = () => {
   ];
 
   const addTodoHandler = (todoText: string) => {
-    const newTodo = todoText;
-    // const uid = Math.floor(Math.random() * 100);
+    let newTodo = Object.create(dummy_todos);
+    const uid = Math.floor(Math.random() * 100);
 
-    // setTodos(newTodo);
+    newTodo.id = uid;
+    newTodo.name = todoText;
+
+    setTodos((prev) => {
+      return prev.concat(newTodo);
+    });
   };
 
   return (
     <div>
       <NewTodo onAddTodo={addTodoHandler} />
-      <Todos items={dummy_todos} />
+      <Todos items={todos} />
     </div>
   );
 };
