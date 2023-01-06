@@ -1,15 +1,9 @@
 import React from "react";
-import { Item } from "../models/todo";
 
-const TodoItem: React.FC<{ item: Item }> = ({ item }) => {
-  console.log(item);
-  return (
-    <div>
-      {/* {item.id} */}
+import classes from "./TodoItem.module.css";
 
-      <h2>{item.name}</h2>
-    </div>
-  );
+const TodoItem: React.FC<{ text: string }> = ({ text }) => {
+  return <li className={classes.item}>{text}</li>;
 };
 
 export default TodoItem;

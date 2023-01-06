@@ -1,16 +1,17 @@
-import { Item } from "../models/todo";
 import TodoItem from "./TodoItem";
+import { Item } from "../models/todo";
+import classes from "./Todos.module.css";
 
 interface Props {
   items: Item[];
-  children?: React.ReactNode;
+  // children?: React.ReactNode;
 }
 
 const Todos: React.FC<Props> = ({ items }) => {
   return (
-    <ul>
+    <ul className={classes.todos}>
       {items.map((item) => (
-        <TodoItem item={item} />
+        <TodoItem key={item.id} text={item.name} />
       ))}
     </ul>
   );
