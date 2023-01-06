@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Item } from "../models/todo";
 
-type TodosContextObj {
-    items: Item[];
-    addTodo: (text: string) => void;
-    removeTodo: (id: number) => void;
-}
+type TodosContextObj = {
+  items: Item[];
+  addTodo: (text: string) => void;
+  removeTodo: (id: number) => void;
+};
 
-const TodosContext = React.createContext<TodosContextObj>({
+export const TodosContext = React.createContext<TodosContextObj>({
   items: [],
   addTodo: (text: string) => {},
   removeTodo: (id: number) => {},
@@ -39,7 +39,7 @@ const TodosContextProvider: React.FC<{ children: React.ReactNode }> = ({
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
-  const contextValue:TodosContextObj = {
+  const contextValue: TodosContextObj = {
     items: todos,
     addTodo: addTodoHandler,
     removeTodo: removeTodoHandler,
