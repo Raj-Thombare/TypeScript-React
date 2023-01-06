@@ -1,4 +1,4 @@
-import { Item } from "../Interfaces";
+import { Item } from "../models/todo";
 import TodoItem from "./TodoItem";
 
 interface Props {
@@ -6,13 +6,12 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const Todos: React.FC<Props> = (props) => {
+const Todos: React.FC<Props> = ({ items }) => {
   return (
     <ul>
-      {props.items.map((item) => (
+      {items.map((item) => (
         <TodoItem item={item} />
       ))}
-      {props.children}
     </ul>
   );
 };
