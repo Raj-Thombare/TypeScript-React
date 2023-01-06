@@ -22,13 +22,11 @@ const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = ({
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} className={classes.form}>
-        <label htmlFor="text">Todo Text </label>
-        <input type="text" id="text" ref={todoTextInputRef} />
-        <button>Add Todo</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit} className={classes.form}>
+      <label htmlFor="text">Todo Text </label>
+      <input type="text" id="text" ref={todoTextInputRef} />
+      <button>Add Todo</button>
+    </form>
   );
 };
 
